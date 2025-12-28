@@ -16,6 +16,7 @@ int main() {
     printf("Enter number of disks: ");
     scanf("%d", &n);
     printf("Steps to solve Hanoi with %d disks:\n", n);
-    hanoi(n, 'A', 'C', 'B'); // A: source, C: destination, B: auxiliary
+    hanoi(n, 'A', 'C', 'B');
     return 0;
 }
+
