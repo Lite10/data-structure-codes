@@ -6,7 +6,7 @@ typedef struct {
     int *data;
     size_t size;
     size_t capacity;
-    int is_min; // 1 => min-heap, 0 => max-heap
+    int is_min; 
 } Heap;
 
 static int cmp(Heap *h, int a, int b) {
@@ -49,7 +49,7 @@ static void sift_down(Heap *h, size_t i) {
 }
 
 int heap_push(Heap *h, int x) {
-    if (h->size == h->capacity) return -1; // full
+    if (h->size == h->capacity) return -1;
     h->data[h->size] = x;
     sift_up(h, h->size);
     h->size++;
@@ -71,7 +71,6 @@ int heap_pop(Heap *h, int *out) {
     return 0;
 }
 
-// Build heap from array in O(n)
 void heap_build(Heap *h, const int *arr, size_t n) {
     if (n > h->capacity) n = h->capacity;
     for (size_t i = 0; i < n; ++i) h->data[i] = arr[i];
@@ -80,7 +79,7 @@ void heap_build(Heap *h, const int *arr, size_t n) {
     for (ssize_t i = (ssize_t)(h->size/2) - 1; i >= 0; --i) sift_down(h, (size_t)i);
 }
 
-/* Demo */
+
 int main(void) {
     int arr[] = {5, 3, 8, 1, 7, 9, 2};
     size_t n = sizeof(arr)/sizeof(arr[0]);
@@ -103,3 +102,4 @@ int main(void) {
     heap_free(&maxH);
     return 0;
 }
+
