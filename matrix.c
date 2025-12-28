@@ -11,7 +11,7 @@ int main() {
         return 1;
     }
 
-    int matrix[10][10]; // assume max 10x10 for simplicity
+    int matrix[10][10]; 
     printf("Enter the matrix elements:\n");
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < cols; j++) {
@@ -19,7 +19,6 @@ int main() {
         }
     }
 
-    // Count non-zero elements
     int count = 0;
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < cols; j++) {
@@ -27,7 +26,6 @@ int main() {
         }
     }
 
-    // Sparse matrix representation: first row = (rows, cols, count)
     int sparse[count + 1][3];
     sparse[0][0] = rows;
     sparse[0][1] = cols;
@@ -37,15 +35,14 @@ int main() {
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < cols; j++) {
             if (matrix[i][j] != 0) {
-                sparse[k][0] = i;            // row index
-                sparse[k][1] = j;            // col index
-                sparse[k][2] = matrix[i][j]; // value
+                sparse[k][0] = i;            
+                sparse[k][1] = j;            
+                sparse[k][2] = matrix[i][j]; 
                 k++;
             }
         }
     }
 
-    // Print sparse matrix (triplet format)
     printf("\nSparse Matrix (row col value):\n");
     for (int i = 0; i <= count; i++) {
         printf("%d %d %d\n", sparse[i][0], sparse[i][1], sparse[i][2]);
@@ -53,3 +50,4 @@ int main() {
 
     return 0;
 }
+
